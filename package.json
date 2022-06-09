@@ -1,0 +1,22 @@
+{
+  "name": "access_token_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-aws-lambda": "^2.0.0",
+    "pug": "^2.0.4",
+    "puppeteer-core": "^2.0.0",
+    "serverless-apigw-binary": "^0.4.4",
+    "kiteconnect": "^4.0.1",
+    "serverless-offline": "^8.8.0",
+    "superagent": "^7.1.6",
+    "totp-generator": "^0.0.13"
+  }
+}

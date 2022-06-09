@@ -1,0 +1,28 @@
+service: access-token-scraper
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: ap-south-1
+  memorySize: 3000
+  timeout: 10
+  environment:
+    user_id: ${ssm:/kiteconnect/user_id_1}
+    password: ${ssm:/kiteconnect/password_1}
+    totp: ${ssm:/kiteconnect/totp_1}
+    api_key: ${ssm:/kiteconnect/api_key}
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: refresh-access-token
+          method: get
+      - schedule: cron(0 3 ? * MON-FRI *)
+
+plugins:
+  - serverless-offline
